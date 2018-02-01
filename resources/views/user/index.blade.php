@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    <h1>Quizs</h1>
+    <hr>
     @forelse($questionaries as $questionary)
         <div class="container">
             <div class="col-md-12" style="margin-top: 17px">

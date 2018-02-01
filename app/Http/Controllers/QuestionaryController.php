@@ -12,7 +12,7 @@ class QuestionaryController extends Controller
 	public function show(Questionary $questionary)
     {
         return view('questionary.show', [
-            'questionariy' => $questionary
+            'questionary' => $questionary
         ]);
     }
     
@@ -22,16 +22,19 @@ class QuestionaryController extends Controller
     }
 
      public function store(CreateQuestionaryRequest $request){
+
+	    $user = $request->user();
+
         Questionary::create([
             'title'   		=> $request->input('title'),
             'tags'    		=> $request->input('tags'),
             'description'   => $request->input('description'),
             'dificult'    	=> $request->input('dificult'),
-            'id_questions'	=> '000000',
-            'id_author'		=> '000000'
+            'questions_id'	=> '000000',
+            'user_id'		=> $user->id,
 
         ]);
 
-        return redirect('/');
+        return redirect('/home');
     }
 }

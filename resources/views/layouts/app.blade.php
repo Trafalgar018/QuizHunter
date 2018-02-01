@@ -31,15 +31,31 @@
 
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ route ('create') }}">Crear cuestionario<span class="sr-only">(current)</span></a>
-                </li>
+                @guest
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route ('login') }}">Iniciar sesion</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route ('register') }}">Registrarse</a>
                 </li>
+                    @else
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route ('create') }}">Crear cuestionario<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/profile/{{ Auth::user()->name }}">Mi perfil</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                    @endguest
+
             
             </ul>
         </div>

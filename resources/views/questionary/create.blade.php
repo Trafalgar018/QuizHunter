@@ -24,7 +24,7 @@
 
         <label for="name" class="col-md-4 control-label">Descripción</label>
         <div class="form-group @if( $errors->has('description'))has-error @endif">
-            <input type="text" class="form-control" id="description" name="description">
+            <input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}">
         </div>
         @if($errors->has('description'))
             @foreach($errors->get('description') as $message)
@@ -37,7 +37,7 @@
 
         <label for="name" class="col-md-4 control-label">Etiquetas</label>
         <div class="form-group @if( $errors->has('tags'))has-error @endif">
-            <input type="text" class="form-control" id="tags" name="tags">
+            <input type="text" class="form-control" id="tags" name="tags" value="{{ old('tags') }}">
         </div>
         @if($errors->has('tags'))
             @foreach($errors->get('tags') as $message)
