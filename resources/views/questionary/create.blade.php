@@ -7,7 +7,7 @@
 	</div> 
 	<div class="panel-body">
 
-
+        <div class="form-body">
     <form action="{{ url('/') }}/questionary/create" method="post">
         {{ csrf_field() }}
         <label for="name" class="col-md-4 control-label">Título</label>
@@ -64,7 +64,7 @@
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
 
-
+</div>
         
     </div>
 </div>
