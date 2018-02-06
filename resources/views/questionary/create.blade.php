@@ -65,15 +65,13 @@
                             <hr>
                         </div>
 
-                        <div class="container" style="text-align: center" id="app">
-                            <botton class="btn btn-info" onclick="">
-                                <span class="glyphicon glyphicon-plus-sign"> Añadir</span>
-                            </botton>
+                        <div class="container" style="text-align: center">
+                            <div id="main"></div>
                         </div>
 
-                        <div class="panel-body table-responsive">
-                            <router-view name="ExampleComponent"></router-view>
-                            <router-view></router-view>
+
+                        <div class="form-footer" style="text-align: center">
+                            <input type="button" id="btAdd" value="Añadir" class="btn btn-info"/>
                         </div>
 
                         <div class="form-footer" style="margin-top: 50px">
