@@ -64,7 +64,7 @@
                             <div class="form-body">
                                 <label class="col-md-4 control-label">Pregunta</label>
                                 <div class="form-group">
-                                    <textarea class="form-control" id="question" rows="3"></textarea>
+                                    <textarea class="form-control" id="question" name="question" rows="3"></textarea>
                                 </div>
 
                                 <div>
@@ -94,7 +94,7 @@
                             <!-- Fin del formulario de preguntas -->
 
                         </div>
-                    </form>
+
 
                     <div class="form-footer" style="text-align: center">
                         <input type="button" id="btAdd" value="Añadir" class="btn btn-info"/>

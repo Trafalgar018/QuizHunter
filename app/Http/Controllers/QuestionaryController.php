@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Questionary;
+use App\Question;
 use App\Http\Requests\CreateQuestionaryRequest;
 use Illuminate\Http\Request;
 
@@ -23,6 +24,16 @@ class QuestionaryController extends Controller
 
      public function store(CreateQuestionaryRequest $request){
 
+
+        Question::create([
+            'title'     => $request->input('question'),
+            'answer_id' => '00000'
+
+        ]);
+
+
+        /**
+
 	    $user = $request->user();
 
         Questionary::create([
@@ -35,6 +46,7 @@ class QuestionaryController extends Controller
 
         ]);
 
+*/
         return redirect('/home');
     }
 }
