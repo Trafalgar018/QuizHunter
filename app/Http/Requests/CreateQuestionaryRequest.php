@@ -27,9 +27,6 @@ class CreateQuestionaryRequest extends FormRequest
             'title' => [
                 'required', 'string'
             ],
-            'tags' => [
-                'string'
-            ],
             'description' => [
                 'required', 'string'
             ],
@@ -42,8 +39,8 @@ class CreateQuestionaryRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Es necesario un titulo',
-            'dificult.required' => 'Es necesaria una dificultad'
+            'title.required'            => 'Es necesario un titulo',
+            'description.required'      => 'El campo descripción es obligatorio',
         ];
     }
 }
