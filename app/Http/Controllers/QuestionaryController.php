@@ -39,7 +39,7 @@ class QuestionaryController extends Controller
          ]);
 
          /** Faltaria implementar un bucle para recorrer cada div de preguntas
-         pero necesitamos saber cuantos div hay */
+          * pero necesitamos saber cuantos div hay */
 
 
          $question = Question::create([
@@ -51,37 +51,13 @@ class QuestionaryController extends Controller
          for ($i = 1; $i <= 3; $i++) {
 
 
-         Answer::create([
-             'answer' => $request->input('answer' . $i),
-             //'correct'=> $request->input('radio1'),
-             'question_id' => $question->id,
-         ]);
+             Answer::create([
+                 'answer' => $request->input('answer' . $i),
+                 //'correct'=> $request->input('radio1'),
+                 'question_id' => $question->id,
+             ]);
 
-        }
-
-
-<<<<<<< HEAD
-=======
-
-        Question::create([
-            'title'     => $request->input('question'),
-            'answer_id' => '00000'
-
-        ]);
-
-
-        /**
-
-	    $user = $request->user();
->>>>>>> 7c944f28a49df114f0330c91c0f518ae3ceeffe4
-
-
-
-<<<<<<< HEAD
+         }
          return redirect('/home');
-=======
-*/
-        return redirect('/home');
->>>>>>> 7c944f28a49df114f0330c91c0f518ae3ceeffe4
-    }
+     }
 }
