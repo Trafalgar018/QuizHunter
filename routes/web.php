@@ -18,6 +18,8 @@ Route::get('/home', 'PagesController@home')->name('home');
 Route::get('/questionary/create', 'QuestionaryController@create')->name('create')->middleware('auth');
 Route::post('/questionary/create', 'QuestionaryController@store')->name('store');
 
+Route::get('/questionary/{id}', 'QuestionaryController@show')->name('show');
+
 Route::get('/profile/{name}', 'UsersController@home')->name('user.home')->middleware('auth');
 
 Route::get('/users/{name}', 'UsersController@show')->name('user');

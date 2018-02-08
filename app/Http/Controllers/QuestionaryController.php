@@ -11,10 +11,19 @@ use Illuminate\Http\Request;
 class QuestionaryController extends Controller
 { 
 
-	public function show(Questionary $questionary)
+	public function show($id)
     {
-        return view('questionary.show', [
-            'questionary' => $questionary
+
+        $questionary = Questionary::where('id', $id)->first();
+        $questions = Question::where('questionary_id', $id)->first();
+        $answers = Answer::where('question_id', $questions->id)->first();
+
+
+        return view('questionary.view', [
+            'questionary' => $questionary,
+            'question'    => $questions,
+            'answer'      => $answers
+
         ]);
     }
     

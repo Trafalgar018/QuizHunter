@@ -71,58 +71,64 @@
 
                             <div class="form-body">
                                 <label class="col-md-4 control-label">Pregunta</label>
-<<<<<<< HEAD
+
                                 <div class="form-group @if( $errors->has('question'))has-error @endif">
-=======
-                                <div class="form-group">
->>>>>>> 7c944f28a49df114f0330c91c0f518ae3ceeffe4
-                                    <textarea class="form-control" id="question" name="question" rows="3"></textarea>
-                                </div>
-                                @if($errors->has('question'))
-                                    @foreach($errors->get('question') as $message)
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ $message }}
+
+                                    <div class="form-group">
+
+                                        <textarea class="form-control" id="question" name="question"
+                                                  rows="3"></textarea>
+                                    </div>
+                                    @if($errors->has('question'))
+                                        @foreach($errors->get('question') as $message)
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ $message }}
+                                            </div>
+                                        @endforeach
+                                    @endif
+
+                                    <div>
+                                        <label class="col-md-4 control-label">Respuestas</label>
+                                    </div>
+
+                                    <div class="container">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="radio1" id="radio1"
+                                                   value='true'>
+                                            <input type="text" class="form-control" id="answer1" name="answer1"
+                                                   value="{{ old('answer') }}">
                                         </div>
-                                    @endforeach
-                                @endif
-
-                                <div>
-                                    <label class="col-md-4 control-label">Respuestas</label>
-                                </div>
-
-                                <div class="container">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="radio1" id="radio1" value='true'>
-                                        <input type="text" class="form-control" id="answer1" name="answer1" value="{{ old('answer') }}">
-                                    </div>
-                                    <br>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2">
-                                        <input class="form-control" id="answer2" name="answer2">
-                                    </div>
-                                    <br>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option3">
-                                        <input class="form-control" id="answer3" name="answer3">
+                                        <br>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                   id="exampleRadios1" value="option2">
+                                            <input class="form-control" id="answer2" name="answer2">
+                                        </div>
+                                        <br>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                   id="exampleRadios1" value="option3">
+                                            <input class="form-control" id="answer3" name="answer3">
+                                        </div>
                                     </div>
                                 </div>
+
+                                <hr style="margin: 70px; background-color: #0f3144">
+
+                                <!-- Fin del formulario de preguntas -->
+
                             </div>
 
-                            <hr style="margin: 70px; background-color: #0f3144">
 
-                            <!-- Fin del formulario de preguntas -->
+                            <div class="form-footer" style="text-align: center">
+                                <input type="button" id="btAdd" value="Añadir" class="btn btn-info"/>
+                            </div>
 
+                            <div class="form-footer" style="margin-top: 50px">
+                                <button type="submit" class="btn btn-info">Enviar
+                                </button>
+                            </div>
                         </div>
-
-
-                    <div class="form-footer" style="text-align: center">
-                        <input type="button" id="btAdd" value="Añadir" class="btn btn-info"/>
-                    </div>
-
-                    <div class="form-footer" style="margin-top: 50px">
-                        <button type="submit" class="btn btn-info">Enviar
-                        </button>
-                    </div>
                     </form>
                 </div>
             </div>
