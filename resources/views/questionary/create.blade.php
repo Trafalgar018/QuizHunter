@@ -38,9 +38,16 @@
 
 
                         <label for="tags" class="col-md-4 control-label">Etiquetas</label>
-                        <div class="form-group">
+                        <div class="form-group @if( $errors->has('tags'))has-error @endif">
                             <input type="text" class="form-control" id="tags" name="tags" value="{{ old('tags') }}">
                         </div>
+                        @if($errors->has('tags'))
+                            @foreach($errors->get('tags') as $message)
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @endforeach
+                        @endif
 
                         <div class="form-group">
                             <label for="dificult" class="col-md-4 control-label">Dificultad</label>
@@ -53,6 +60,7 @@
                             </select>
                         </div>
 
+
                         <div class="panel-body" style="margin: 20px; margin-top: 70px">
                             <h2>Preguntas</h2>
                             <hr style="margin-bottom: 80px">
@@ -63,9 +71,20 @@
 
                             <div class="form-body">
                                 <label class="col-md-4 control-label">Pregunta</label>
+<<<<<<< HEAD
+                                <div class="form-group @if( $errors->has('question'))has-error @endif">
+=======
                                 <div class="form-group">
+>>>>>>> 7c944f28a49df114f0330c91c0f518ae3ceeffe4
                                     <textarea class="form-control" id="question" name="question" rows="3"></textarea>
                                 </div>
+                                @if($errors->has('question'))
+                                    @foreach($errors->get('question') as $message)
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                    @endforeach
+                                @endif
 
                                 <div>
                                     <label class="col-md-4 control-label">Respuestas</label>
@@ -73,18 +92,18 @@
 
                                 <div class="container">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                        <input class="form-control" id="answer1" name="answer1">
+                                        <input class="form-check-input" type="radio" name="radio1" id="radio1" value='true'>
+                                        <input type="text" class="form-control" id="answer1" name="answer1" value="{{ old('answer') }}">
                                     </div>
                                     <br>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                        <input class="form-control" id="answer1" name="answer1">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2">
+                                        <input class="form-control" id="answer2" name="answer2">
                                     </div>
                                     <br>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                        <input class="form-control" id="answer1" name="answer1">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option3">
+                                        <input class="form-control" id="answer3" name="answer3">
                                     </div>
                                 </div>
                             </div>

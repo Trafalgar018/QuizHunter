@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Questionary;
 use App\Question;
 use App\Http\Requests\CreateQuestionaryRequest;
@@ -22,8 +23,45 @@ class QuestionaryController extends Controller
         return view('questionary.create');
     }
 
-     public function store(CreateQuestionaryRequest $request){
+     public function store(CreateQuestionaryRequest $request)
+     {
 
+
+         $user = $request->user();
+
+         $questionary = Questionary::create([
+             'title' => $request->input('title'),
+             'tags' => $request->input('tags'),
+             'description' => $request->input('description'),
+             'dificult' => $request->input('dificult'),
+             'user_id' => $user->id,
+
+         ]);
+
+         /** Faltaria implementar un bucle para recorrer cada div de preguntas
+         pero necesitamos saber cuantos div hay */
+
+
+         $question = Question::create([
+             'title' => $request->input('question'),
+             'questionary_id' => $questionary->id,
+
+         ]);
+
+         for ($i = 1; $i <= 3; $i++) {
+
+
+         Answer::create([
+             'answer' => $request->input('answer' . $i),
+             //'correct'=> $request->input('radio1'),
+             'question_id' => $question->id,
+         ]);
+
+        }
+
+
+<<<<<<< HEAD
+=======
 
         Question::create([
             'title'     => $request->input('question'),
@@ -35,18 +73,15 @@ class QuestionaryController extends Controller
         /**
 
 	    $user = $request->user();
+>>>>>>> 7c944f28a49df114f0330c91c0f518ae3ceeffe4
 
-        Questionary::create([
-            'title'   		=> $request->input('title'),
-            'tags'    		=> $request->input('tags'),
-            'description'   => $request->input('description'),
-            'dificult'    	=> $request->input('dificult'),
-            'questions_id'	=> '000000',
-            'user_id'		=> $user->id,
 
-        ]);
 
+<<<<<<< HEAD
+         return redirect('/home');
+=======
 */
         return redirect('/home');
+>>>>>>> 7c944f28a49df114f0330c91c0f518ae3ceeffe4
     }
 }

@@ -27,11 +27,17 @@ class CreateQuestionaryRequest extends FormRequest
             'title' => [
                 'required', 'string'
             ],
+            'tags' => [
+                'required', 'string'
+            ],
             'description' => [
                 'required', 'string'
             ],
             'dificult' => [
                 'required', 'int'
+            ],
+            'question' => [
+                'required', 'string'
             ],
         ];
     }
@@ -40,7 +46,9 @@ class CreateQuestionaryRequest extends FormRequest
     {
         return [
             'title.required'            => 'Es necesario un titulo',
+            'tags.required'             => 'Introduzca al menos una etiqueta',
             'description.required'      => 'El campo descripción es obligatorio',
+            'question.required'         => 'Introduzca una pregunta'
         ];
     }
 }

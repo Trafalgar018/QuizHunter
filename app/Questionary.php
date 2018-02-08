@@ -11,4 +11,8 @@ class Questionary extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function question(){
+        return $this->belongsToMany(Questionary::class);
+    }
 }

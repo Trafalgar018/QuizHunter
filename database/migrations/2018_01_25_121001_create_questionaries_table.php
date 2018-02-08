@@ -19,7 +19,6 @@ class CreateQuestionariesTable extends Migration
             $table->string('tags');
             $table->string('description');
             $table->integer('dificult');
-            $table->string('questions_id');
             $table->timestamps();
         });
     }
