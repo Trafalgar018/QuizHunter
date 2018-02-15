@@ -93,10 +93,9 @@
 
                                     <div class="container">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radio1" id="radio1"
-                                                   value='true'>
-                                            <input type="text" class="form-control" id="answer1" name="answer1"
-                                                   value="{{ old('answer') }}">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                   id="exampleRadios1" value="option2">
+                                            <input class="form-control" id="answer1" name="answer1">
                                         </div>
                                         <br>
                                         <div class="form-check">

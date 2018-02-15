@@ -21,25 +21,24 @@
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <div class="input-group">
                             <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
-                            @if ($errors->has('email'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                </span>
-                            @endif
                         </div>
+                        @if ($errors->has('email'))
+                            <br>
+                            <div class="alert alert-danger" role="alert">
+                                        {{ $errors->first('email') }}
+                                </div>
+                        @endif
                     </div>
 
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <div class="input-group">
                             <input id="password" type="password" class="form-control" placeholder="Contraseña" name="password" required>
-
-                            @if ($errors->has('password'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                            @endif
                         </div>
-
+                        @if ($errors->has('password'))
+                            <div class="alert alert-danger" role="alert">
+                                    {{ $errors->first('password') }}
+                                </div>
+                        @endif
                     </div>
 
                     <div class="form-footer">

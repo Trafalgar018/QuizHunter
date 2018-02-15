@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <br>
+    <h1>Últimos quizs</h1>
+    <hr>
     @forelse($questionaries as $questionary)
         <div class="container">
             <div class="col-md-12" style="margin-top: 17px">
@@ -15,7 +18,7 @@
         <hr>
 
     @empty
-        <P>No hay quizs disponibles.</P>
+        <h1>No hay quizs disponibles.</h1>
     @endforelse
 @endsection
 
