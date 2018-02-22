@@ -10,9 +10,6 @@ $factory->define(App\Questionary::class, function (Faker $faker) {
         'tags' => $faker->word,
         'description' => $faker->text(20),
         'dificult' => $faker->numberBetween(1,5),
-        'user_id' => 1,
-        'questions_id' => 0,
-
-
+        'user_id' => 1
     ];
 });

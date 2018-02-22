@@ -57,16 +57,6 @@ class QuestionaryController extends Controller
 
          ]);
 
-         for ($i = 1; $i <= 3; $i++) {
-
-
-             Answer::create([
-                 'answer' => $request->input('answer' . $i),
-                 //'correct'=> $request->input('radio1'),
-                 'question_id' => $question->id,
-             ]);
-
-         }
          return redirect('/home');
      }
 }

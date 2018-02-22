@@ -27,6 +27,6 @@ class AddAnswerIdToQuestionTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('add_question_id_to_answer');
     }
 }

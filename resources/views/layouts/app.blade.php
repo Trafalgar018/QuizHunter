@@ -17,6 +17,7 @@
    
 </head>
 <body>
+<div id="app">
     <nav class="navbar navbar-toggleable-md navbar-dark bg-inverse" style="background-color: #2a2a2a">
 
         <div>
@@ -47,7 +48,10 @@
                 </li>
                     @else
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route ('create') }}">Crear cuestionario<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route ('create_questionnary') }}">Crear cuestionario<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route ('create_question') }}">Crear pregunta<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -66,8 +70,8 @@
     </nav>
     @yield('content')
 
-    
-    
-    
+
+
+</div>
 </body>
 </html>

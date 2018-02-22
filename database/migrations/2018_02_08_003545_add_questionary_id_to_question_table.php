@@ -14,7 +14,7 @@ class AddQuestionaryIdToQuestionTable extends Migration
     public function up()
     {
         Schema::table('questions', function (Blueprint $table) {
-            $table->integer('questionary_id')->unsigned()->after('id');
+            $table->integer('questionary_id')->unsigned()->nullable();
 
             $table->foreign('questionary_id')->references('id')->on('questionaries');
         });
@@ -27,6 +27,6 @@ class AddQuestionaryIdToQuestionTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('add_questionary_id_to_question');
     }
 }
