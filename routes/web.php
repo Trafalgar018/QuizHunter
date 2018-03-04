@@ -18,6 +18,7 @@ Route::get('/home', 'PagesController@home')->name('home');
 
 Route::get('/questionnary/create', 'QuestionaryController@create')->name('create_questionnary')->middleware('auth');
 Route::post('/questionary/create', 'QuestionaryController@store')->name('store');
+Route::get('/questionary/load/{name}', 'QuestionaryController@load')->name('questionary_load');
 Route::get('/questionary/{id}', 'QuestionaryController@show')->name('show');
 
 Route::get('/question/create', 'QuestionController@create')->name('create_question')->middleware('auth');

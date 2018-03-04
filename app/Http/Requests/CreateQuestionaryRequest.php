@@ -36,9 +36,6 @@ class CreateQuestionaryRequest extends FormRequest
             'dificult' => [
                 'required', 'int'
             ],
-            'question' => [
-                'required', 'string'
-            ],
         ];
     }
 
@@ -48,7 +45,6 @@ class CreateQuestionaryRequest extends FormRequest
             'title.required'            => 'Es necesario un titulo',
             'tags.required'             => 'Introduzca al menos una etiqueta',
             'description.required'      => 'El campo descripción es obligatorio',
-            'question.required'         => 'Introduzca una pregunta'
         ];
     }
 }

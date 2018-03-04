@@ -36,29 +36,26 @@
 
                                     <div class="container">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadios"
-                                                   id="exampleRadios1" value="option2">
+                                            <input class="form-check-input" type="radio" name="radios"
+                                                   id="radios1" value="checked">
                                             <input class="form-control" id="answer1" name="answer1">
                                         </div>
                                         <br>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadios"
-                                                   id="exampleRadios1" value="option2">
+                                            <input class="form-check-input" type="radio" name="radios"
+                                                   id="radios2" value="checked">
                                             <input class="form-control" id="answer2" name="answer2">
                                         </div>
                                         <br>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadios"
-                                                   id="exampleRadios1" value="option3">
+                                            <input class="form-check-input" type="radio" name="radios"
+                                                   id="radios3" value="checked">
                                             <input class="form-control" id="answer3" name="answer3">
                                         </div>
                                     </div>
                                 </div>
                                 <br>
                                 <hr>
-
-                                <!-- Fin del formulario de preguntas -->
-
                             </div>
 
                             <div class="form-footer" style="text-align: center">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Answer;
 use App\Questionary;
 use App\Question;
+use App\User;
 use App\Http\Requests\CreateQuestionaryRequest;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,7 @@ class QuestionaryController extends Controller
 
          $user = $request->user();
 
-         $questionary = Questionary::create([
+         Questionary::create([
              'title' => $request->input('title'),
              'tags' => $request->input('tags'),
              'description' => $request->input('description'),
@@ -47,16 +48,19 @@ class QuestionaryController extends Controller
 
          ]);
 
-         /** Faltaria implementar un bucle para recorrer cada div de preguntas
-          * pero necesitamos saber cuantos div hay */
-
-
-         $question = Question::create([
-             'title' => $request->input('question'),
-             'questionary_id' => $questionary->id,
-
-         ]);
-
          return redirect('/home');
      }
+
+    public function load($name){
+
+
+        $user = User::where('name', $name)->first();
+
+        $questions = $user->questions()->latest()->paginate(6);
+
+        return view('questionary.addQuestions', [
+            'user'          => $user,
+            'questions' => $questions
+        ]);
+    }
 }

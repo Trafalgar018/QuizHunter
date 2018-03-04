@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAnswerIdToQuestionTable extends Migration
+class AddUserIdToQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class AddAnswerIdToQuestionTable extends Migration
      */
     public function up()
     {
-        Schema::table('answers', function (Blueprint $table) {
-            $table->integer('question_id')->unsigned()->after('id');
+        Schema::table('questions', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned()->after('id');
 
-            $table->foreign('question_id')->references('id')->on('answers');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -27,6 +27,8 @@ class AddAnswerIdToQuestionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('add_questions_id_to_answers');
+        Schema::dropIfExists('add_user_id_to_questions');
     }
 }
+
+

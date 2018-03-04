@@ -53,6 +53,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route ('create_question') }}">Crear pregunta<span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/questionary/load/{{ Auth::user()->name }}">cargar cuestionario<span class="sr-only">(current)</span></a>
+                    </li>
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
