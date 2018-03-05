@@ -2,7 +2,7 @@
 
 @section('content')
     <br>
-    <div class="container">
+    <div class="container" style="text-align: center">
         <h2>Añadir preguntas</h2>
     </div>
     <hr>
@@ -23,8 +23,9 @@
 
 
         </div>
-        <div class="form-control col-md-5" style="margin-right: 100px; margin-left: 100px;height: 1000px">
-
+        <div class="form-control col-md-5" style="margin-right: 100px; margin-left: 100px;height: 1000px; text-align: center">
+            <h3 style="margin: 20px">{{$questionary['title']}}</h3>
+            <hr>
         </div>
     </div>
 @endsection

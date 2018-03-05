@@ -14,28 +14,28 @@
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
    <script src="{{ asset('js/app.js') }}"></script>
    <script src="{{ asset('js/questionary.js') }}"></script>
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-toggleable-md navbar-dark bg-inverse" style="background-color: #2a2a2a">
+    <nav class="navbar navbar-toggleable-md navbar-dark" style="background-color: #2a2a2a">
 
         <div>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-            @guest
-                @else
-        <a class="navbar-brand" href="/profile/{{ Auth::user()->name }}">{{ Auth::user()->name }}</a>
-            @endguest
+            <a class="navbar-brand" href="{{ route ('home') }}">QuizHunter</a>
         </div>
 
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="text" placeholder="Buscar por tags">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
         </form>
-        <a class="navbar-brand" href="{{ route ('home') }}">QuizHunter</a>
+
+        @guest
+        @else
+            <a class="navbar-brand" href="/profile/{{ Auth::user()->name }}">{{ Auth::user()->name }}</a>
+        @endguest
 
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
@@ -52,9 +52,6 @@
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route ('create_question') }}">Crear pregunta<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/questionary/load/{{ Auth::user()->name }}">cargar cuestionario<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();

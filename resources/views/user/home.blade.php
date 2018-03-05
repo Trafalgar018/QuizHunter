@@ -10,7 +10,13 @@
                 <p><strong>Título:</strong> {{ $questionary['title'] }}</p>
                 <p><strong>Descripción:</strong> {{ $questionary['description'] }}</p>
             </div>
+            <div class="container">
+                <a type="button" class="btn btn-default" href="/questionary/load/{{$questionary['id']}}">
+                    <span class="fa fa-pencil"></span>
+                </a>
+            </div>
         </div>
+        <br>
     @empty
         <P>No hay quizs disponibles.</P>
     @endforelse

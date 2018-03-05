@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "492d12f9e808b1c61a0099774f0606b2",
-    "content-hash": "a39fd47e8391c2a3fecef69c7d6b73b0",
+    "hash": "586f60d7a705751b09eb5d606c4927a8",
+    "content-hash": "c40ee8c619928aa800c6b018ed5e1e01",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -755,6 +755,53 @@
                 }
             ],
             "time": "2015-04-20 18:58:01"
+        },
+        {
+            "name": "khill/fontawesomephp",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kevinkhill/FontAwesomePHP.git",
+                "reference": "ccaefe45daed694399ea14d922ef94187351aed5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kevinkhill/FontAwesomePHP/zipball/ccaefe45daed694399ea14d922ef94187351aed5",
+                "reference": "ccaefe45daed694399ea14d922ef94187351aed5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "doctrine/instantiator": "1.0.4",
+                "phpunit/phpunit": "~4.8",
+                "satooshi/php-coveralls": "~1.0",
+                "symfony/config": "~2.0",
+                "symfony/console": "~2.0",
+                "symfony/filesystem": "~2.0",
+                "symfony/stopwatch": "~2.0",
+                "symfony/yaml": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Khill\\Fontawesome\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Hill",
+                    "email": "kevinkhill@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP wrapper library for the fantastic FontAwesome icon set.",
+            "time": "2016-04-08 03:46:35"
         },
         {
             "name": "laravel/framework",

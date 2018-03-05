@@ -51,16 +51,19 @@ class QuestionaryController extends Controller
          return redirect('/home');
      }
 
-    public function load($name){
+    public function load($id){
 
+        $questionary = Questionary::where('id', $id)->first();
 
-        $user = User::where('name', $name)->first();
+        $user = User::where('id', $questionary->user_id)->first();
 
         $questions = $user->questions()->latest()->paginate(6);
 
+
         return view('questionary.addQuestions', [
             'user'          => $user,
-            'questions' => $questions
+            'questions'     => $questions,
+            'questionary'   => $questionary
         ]);
     }
 }
