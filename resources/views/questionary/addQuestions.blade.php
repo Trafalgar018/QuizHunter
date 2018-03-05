@@ -7,23 +7,27 @@
     </div>
     <hr>
     <br>
-    <div class="form-row">
-        <div class="container  col-md-4">
+    <div class="form-row col-md-12">
+        <div class="form-control  col-md-5" style="margin: 20px;align-content: center;margin-left: 40px;margin-right: 40px">
         @forelse($questions as $question)
             <div class="form-control">
-                <div class="form" style="margin-top: 17px">
-                    <p><strong>Título:</strong> {{ $question['title'] }}</p>
-
+                <div class="form" style="margin-top: 15px">
+                    <p><strong>Título:</strong> {{$question['title'] }}</p>
                 </div>
             </div>
             <br>
         @empty
 
-    @endforelse
+        <h4>No hay preguntas</h4>
 
-
+        @endforelse
         </div>
-        <div class="form-control col-md-5" style="margin-right: 100px; margin-left: 100px;height: 1000px; text-align: center">
+
+        <div class="col-md-1">
+        </div>
+
+        
+        <div class="form-control col-md-5" style="margin: 20px;height: 500px; text-align:center">
             <h3 style="margin: 20px">{{$questionary['title']}}</h3>
             <hr>
         </div>
