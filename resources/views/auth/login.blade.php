@@ -20,24 +20,26 @@
 
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <div class="input-group">
-                            <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
+                            <input id="email" type="email" class="form-control" name="email" placeholder="Email"
+                                   value="{{ old('email') }}" required autofocus>
                         </div>
                         @if ($errors->has('email'))
                             <br>
                             <div class="alert alert-danger" role="alert">
-                                        {{ $errors->first('email') }}
-                                </div>
+                                {{ $errors->first('email') }}
+                            </div>
                         @endif
                     </div>
 
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <div class="input-group">
-                            <input id="password" type="password" class="form-control" placeholder="Contraseña" name="password" required>
+                            <input id="password" type="password" class="form-control" placeholder="Contraseña"
+                                   name="password" required>
                         </div>
                         @if ($errors->has('password'))
                             <div class="alert alert-danger" role="alert">
-                                    {{ $errors->first('password') }}
-                                </div>
+                                {{ $errors->first('password') }}
+                            </div>
                         @endif
                     </div>
 
@@ -46,10 +48,10 @@
                             <span class="glyphicon glyphicon-log-in"></span>Enviar
                         </button>
                     </div>
-
+                </div>
             </form>
-
         </div>
+    </div>
 
     </div>
 @endsection

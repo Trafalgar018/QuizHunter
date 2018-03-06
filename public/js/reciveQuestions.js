@@ -60,34 +60,33 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 46);
+/******/ 	return __webpack_require__(__webpack_require__.s = 48);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 46:
+/***/ 48:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(47);
+module.exports = __webpack_require__(49);
 
 
 /***/ }),
 
-/***/ 47:
+/***/ 49:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
 
-    $(function () {
-        $("ul.droptrue").sortable({
-            connectWith: "ul"
-        });
+    $('#envQuestions').click(function () {
 
-        $("ul.dropfalse").sortable({
-            connectWith: "ul"
-        });
+        console.log('hola');
 
-        $("#sortable1, #sortable2").disableSelection();
+        // let questions;
+        //     console.log('hola');
+        //     $('#sortable2').each(function () {
+        //         console.log(div.attr(id));
+        //     });
     });
 });
 

@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     $( function() {
         $( "ul.droptrue" ).sortable({
             connectWith: "ul"
