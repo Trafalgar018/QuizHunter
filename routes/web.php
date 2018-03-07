@@ -16,13 +16,18 @@ Auth::routes();
 Route::get('/', 'PagesController@home');
 Route::get('/home', 'PagesController@home')->name('home');
 
-Route::get('/questionnary/create', 'QuestionaryController@create')->name('create_questionnary')->middleware('auth');
+Route::group(['middleware' => 'auth'], function(){
+Route::get('/questionnary/create', 'QuestionaryController@create')->name('create_questionnary');
 Route::post('/questionary/create', 'QuestionaryController@store')->name('store');
-Route::get('/questionary/load/{id}', 'QuestionaryController@load')->name('questionary_load');
-Route::get('/questionary/{id}', 'QuestionaryController@show')->name('show');
 
-Route::get('/question/create', 'QuestionController@create')->name('create_question')->middleware('auth');
+Route::get('/question/create', 'QuestionController@create')->name('create_question');
 Route::post('/question/create','QuestionController@store')->name('store');
 
-Route::get('/profile/{name}', 'UsersController@home')->name('user.home')->middleware('auth');
-Route::get('/users/{name}', 'UsersController@show')->name('user');
+Route::get('/profile/{slug}', 'UsersController@home')->name('user.home');
+
+Route::get('/questionary/load/{id}', 'QuestionaryController@load')->name('questionary_load');
+});
+
+Route::get('/questionary/{slug}', 'QuestionaryController@show')->name('show');
+
+Route::get('/users/{slug}', 'UsersController@show')->name('user');

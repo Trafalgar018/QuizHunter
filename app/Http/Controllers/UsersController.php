@@ -20,9 +20,9 @@ class UsersController extends Controller
 
     }
 
-    public function home($name){
+    public function home($slug){
 
-        $user = User::where('name', $name)->first();
+        $user = User::where('name', $slug)->first();
 
         $questionaries = $user->questionaries()->latest()->paginate(6);
 
@@ -60,8 +60,8 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($name){
-        $user = User::where('name', $name)->first();
+    public function show($slug){
+        $user = User::where('name', $slug)->first();
 
         $questionaries = $user->questionaries()->latest()->paginate(6);
 

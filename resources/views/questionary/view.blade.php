@@ -7,7 +7,7 @@
             </div>
             <div class="panel-body">
                 <div class="form-body">
-                    <div class="form-control" style="margin-top: 100px">
+                    <div class="form-control" style="margin-top: 50px">
                         <div>
                         <strong>Descripcion: </strong><a>{{$questionary->description}}</a>
                         </div>
@@ -20,15 +20,10 @@
                     </div>
                     <br>
                     <div class="form-control">
-                        <div>
-                    <strong>pregunta: </strong><a>{{$question->title}}</a>
-                        </div>
-                        <div>
-                    <strong>A: </strong><a>{{$answer->answer}}</a>
-                        </div>
+                        <!--Preguntas-->
+
+
                     </div>
-
-
                 </div>
             </div>
         </div>

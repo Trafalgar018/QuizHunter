@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <br>
     <h1>My quizs</h1>
     <hr>
     <div class="container">

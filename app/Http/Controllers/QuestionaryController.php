@@ -12,13 +12,17 @@ use Illuminate\Http\Request;
 class QuestionaryController extends Controller
 { 
 
-	public function show($id)
+	public function show($slug)
     {
 
-        $questionary = Questionary::where('id', $id)->first();
-        $questions = Question::where('questionary_id', $id)->first();
-        $answers = Answer::where('question_id', $questions->id)->first();
+        $questionary = Questionary::where('slug', $slug)->first();
 
+        $questions = Question::where('questionary_id', $questionary->id);
+        $answers = null;
+
+        foreach ($questions as $question) {
+            $answers = Answer::where('question_id', $question->id);
+        }
 
         return view('questionary.view', [
             'questionary' => $questionary,
@@ -42,6 +46,7 @@ class QuestionaryController extends Controller
          Questionary::create([
              'title' => $request->input('title'),
              'tags' => $request->input('tags'),
+             'slug' => str_slug($request->input(['title'], "-")),
              'description' => $request->input('description'),
              'dificult' => $request->input('dificult'),
              'user_id' => $user->id,
