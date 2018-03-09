@@ -77,16 +77,23 @@ module.exports = __webpack_require__(49);
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-
+    console.log("pepe");
     $('#envQuestions').click(function () {
 
-        console.log('hola');
+        $.ajax({
 
-        // let questions;
-        //     console.log('hola');
-        //     $('#sortable2').each(function () {
-        //         console.log(div.attr(id));
-        //     });
+            type: 'POST',
+
+            url: '/ajaxRequest',
+
+            data: { name: "nombre", password: "password", email: "email" },
+
+            success: function success(data) {
+
+                alert(data.success);
+            }
+
+        });
     });
 });
 

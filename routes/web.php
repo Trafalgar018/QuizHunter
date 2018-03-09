@@ -26,6 +26,7 @@ Route::post('/question/create','QuestionController@store')->name('store');
 Route::get('/profile/{slug}', 'UsersController@home')->name('user.home');
 
 Route::get('/questionary/load/{id}', 'QuestionaryController@load')->name('questionary_load');
+Route::post('/ajaxRequest', 'QuestionaryController@ajaxRequestPost');
 });
 
 Route::get('/questionary/{slug}', 'QuestionaryController@show')->name('show');
