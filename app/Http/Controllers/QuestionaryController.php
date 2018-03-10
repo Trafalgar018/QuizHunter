@@ -10,9 +10,9 @@ use App\Http\Requests\CreateQuestionaryRequest;
 use Illuminate\Http\Request;
 
 class QuestionaryController extends Controller
-{ 
+{
 
-	public function show($slug)
+    public function show($slug)
     {
 
         $questionary = Questionary::where('slug', $slug)->first();
@@ -26,37 +26,38 @@ class QuestionaryController extends Controller
 
         return view('questionary.view', [
             'questionary' => $questionary,
-            'question'    => $questions,
-            'answer'      => $answers
+            'question' => $questions,
+            'answer' => $answers
 
         ]);
     }
-    
+
     public function create()
     {
         return view('questionary.create');
     }
 
-     public function store(CreateQuestionaryRequest $request)
-     {
+    public function store(CreateQuestionaryRequest $request)
+    {
 
 
-         $user = $request->user();
+        $user = $request->user();
 
-         Questionary::create([
-             'title' => $request->input('title'),
-             'tags' => $request->input('tags'),
-             'slug' => str_slug($request->input(['title'], "-")),
-             'description' => $request->input('description'),
-             'dificult' => $request->input('dificult'),
-             'user_id' => $user->id,
+        Questionary::create([
+            'title' => $request->input('title'),
+            'tags' => $request->input('tags'),
+            'slug' => str_slug($request->input(['title'], "-")),
+            'description' => $request->input('description'),
+            'dificult' => $request->input('dificult'),
+            'user_id' => $user->id,
 
-         ]);
+        ]);
 
-         return redirect('/home');
-     }
+        return redirect('/home');
+    }
 
-    public function load($id){
+    public function load($id)
+    {
 
         $questionary = Questionary::where('id', $id)->first();
 
@@ -66,18 +67,42 @@ class QuestionaryController extends Controller
 
 
         return view('questionary.addQuestions', [
-            'user'          => $user,
-            'questions'     => $questions,
-            'questionary'   => $questionary
+            'user' => $user,
+            'questions' => $questions,
+            'questionary' => $questionary
         ]);
     }
 
 
-    public function ajaxRequestPost(){
+    public function ajaxRequestPost()
+    {
 
         $input = request()->all();
+        $respuesta;
+        if(isset($input["preguntas"])){
 
-        return response()->json(['success'=>'Got Simple Ajax Request.']);
+        $preguntas = $input["preguntas"];
+
+
+            $idCuestionario = $input["cuestionario"];
+
+            $cuestionario = Questionary::where('id', $idCuestionario)->first();
+
+            $questions = Question::where('questionary_id', $cuestionario->id);
+
+            $cuestionario->questions()->detach();
+
+            foreach ($preguntas as $idPregunta) {
+                $cuestionario->questions()->attach("" . $idPregunta);
+            }
+
+            $respuesta = true;
+
+        }else{
+            $respuesta = false;
+        }
+        return $respuesta;
 
     }
+
 }

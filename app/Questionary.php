@@ -11,8 +11,12 @@ class Questionary extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-
-    public function question(){
-        return $this->belongsToMany(Questionary::class);
+    /**
+     * Un chusqer tiene varios hashtags.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function questions(){
+        return $this->belongsToMany(Question::class);
     }
 }

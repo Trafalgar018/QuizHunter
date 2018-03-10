@@ -13,14 +13,14 @@ class CreateQuestionaryQuestionTable extends Migration
      */
     public function up()
     {
-        Schema::create('questionary_question', function (Blueprint $table) {
+        Schema::create('question_questionary', function (Blueprint $table) {
             $table->integer('questionary_id')->unsigned();
             $table->integer('question_id')->unsigned();
 
             $table->primary(['questionary_id','question_id']);
 
-            $table->foreign('questionary_id')->references('id')->on('questionaries')->onDelete('cascade');
-            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
+            $table->foreign('questionary_id')->references('id')->on('questionaries');
+            $table->foreign('question_id')->references('id')->on('questions');
         });
     }
 
@@ -31,6 +31,6 @@ class CreateQuestionaryQuestionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questionary_question');
+        Schema::dropIfExists('question_questionary');
     }
 }

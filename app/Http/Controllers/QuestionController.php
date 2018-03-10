@@ -54,4 +54,18 @@ class QuestionController extends Controller
             ]);
 
     }
+
+    /**
+     * @param Chusqer $chusqer
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id)
+    {
+        $question = Questionary::where('id',$id)->frist();
+
+        if( ! Auth::user()->can('delete', $question) ){
+            return redirect()->route('home');
+        }
+        $question->delete();
+    }
 }

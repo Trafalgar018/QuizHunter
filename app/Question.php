@@ -8,19 +8,20 @@ class Question extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-
-    public function questionary(){
-        return $this->belongsToMany(Question::class);
+    /**
+     * Un hashtag tiene varios chusqers.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function questionaries(){
+        return $this->belongsToMany(Questionary::class);
     }
 
     public function answer()
     {
         return $this->hasMany(Question::class);
     }
-    public function question(){
-        return $this->belongsTo(Question::class);
 
-    }
     public function user(){
         return $this->belongsTo(User::class);
     }

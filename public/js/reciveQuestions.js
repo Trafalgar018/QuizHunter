@@ -60,30 +60,37 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 48);
+/******/ 	return __webpack_require__(__webpack_require__.s = 45);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 48:
+/***/ 45:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(49);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
 
-/***/ 49:
+/***/ 46:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-    console.log("pepe");
+
     $('#envQuestions').click(function () {
+        var idPreguntas = new Array();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        $("#sortable2").children().each(function () {
+            idPreguntas.push(this.id);
+        });
+
+        var id = $("#cuestionario").data("id");
 
         $.ajax({
 
@@ -91,7 +98,7 @@ $(document).ready(function () {
 
             url: '/ajaxRequest',
 
-            data: { name: "nombre", password: "password", email: "email" },
+            data: { cuestionario: id, preguntas: idPreguntas },
 
             success: function success(data) {
 

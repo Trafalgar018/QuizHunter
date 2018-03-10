@@ -33,7 +33,7 @@
         </div>
 
 
-        <div class="form-control col-md-5" style="margin: 20px; text-align:center;overflow-y: paged-y;">
+        <div id="cuestionario" data-id="{{$questionary['id']}}" class="form-control col-md-5" style="margin: 20px; text-align:center;overflow-y: paged-y;">
             <h3 style="margin: 20px">{{$questionary['title']}}</h3>
             <hr>
             <P>Añada sus preguntas</P>

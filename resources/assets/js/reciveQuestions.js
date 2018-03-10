@@ -1,11 +1,18 @@
 $(document).ready(function() {
-console.log("pepe");
+
     $('#envQuestions').click(function () {
+        var idPreguntas = new Array();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        $("#sortable2").children().each(function() {
+            idPreguntas.push(this.id);
+        });
+
+        var id = $("#cuestionario").data("id");
 
         $.ajax({
 
@@ -13,7 +20,7 @@ console.log("pepe");
 
             url:'/ajaxRequest',
 
-            data:{name:"nombre", password:"password", email:"email"},
+            data:{cuestionario: id, preguntas: idPreguntas},
 
             success:function(data){
 
