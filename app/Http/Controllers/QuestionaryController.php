@@ -8,6 +8,8 @@ use App\Question;
 use App\User;
 use App\Http\Requests\CreateQuestionaryRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class QuestionaryController extends Controller
 {
@@ -16,19 +18,18 @@ class QuestionaryController extends Controller
     {
 
         $questionary = Questionary::where('slug', $slug)->first();
+        $questions =  $questionary->questions;
+        $answers = array();
 
-        $questions = Question::where('questionary_id', $questionary->id);
-        $answers = null;
-
-        foreach ($questions as $question) {
-            $answers = Answer::where('question_id', $question->id);
+        foreach($questions as $question){
+            $answer = Answer::where('question_id', $question->id)->paginate(3);
+            array_push($answers,$answer);
         }
 
         return view('questionary.view', [
             'questionary' => $questionary,
-            'question' => $questions,
-            'answer' => $answers
-
+            'questions'   => $questions,
+            'answers' => $answers
         ]);
     }
 
@@ -78,31 +79,33 @@ class QuestionaryController extends Controller
     {
 
         $input = request()->all();
-        $respuesta;
-        if(isset($input["preguntas"])){
 
-        $preguntas = $input["preguntas"];
+        $questions = $input["preguntas"];
 
 
-            $idCuestionario = $input["cuestionario"];
+            $idQuestionary = $input["cuestionario"];
 
-            $cuestionario = Questionary::where('id', $idCuestionario)->first();
+            $questionary = Questionary::where('id', $idQuestionary)->first();
 
-            $questions = Question::where('questionary_id', $cuestionario->id);
 
-            $cuestionario->questions()->detach();
+            $questionary->questions()->detach();
 
-            foreach ($preguntas as $idPregunta) {
-                $cuestionario->questions()->attach("" . $idPregunta);
+            foreach ($questions as $question) {
+                $questionary->questions()->attach("" . $question);
             }
 
-            $respuesta = true;
 
-        }else{
-            $respuesta = false;
-        }
-        return $respuesta;
 
     }
+
+    public function destroy(Questionary $questionary)
+    {
+        if( ! Auth::user()->can('delete', $questionary) ){
+            return redirect()->route('home');
+        }
+        $questionary->delete();
+        return redirect()->route('user', Auth::user()->slug);
+    }
+
 
 }

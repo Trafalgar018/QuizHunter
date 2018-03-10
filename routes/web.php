@@ -19,6 +19,7 @@ Route::get('/home', 'PagesController@home')->name('home');
 Route::group(['middleware' => 'auth'], function(){
 Route::get('/questionnary/create', 'QuestionaryController@create')->name('create_questionnary');
 Route::post('/questionary/create', 'QuestionaryController@store')->name('store');
+Route::delete('/questionary/{questionary}', 'QuestionaryController@destroy')->name('questionary_delete');
 
 Route::get('/question/create', 'QuestionController@create')->name('create_question');
 Route::post('/question/create','QuestionController@store')->name('store');
