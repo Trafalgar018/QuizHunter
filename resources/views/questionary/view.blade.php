@@ -21,8 +21,8 @@
                             </div>
                         </div>
                         <br>
+                        <hr>
                         <br>
-
                         <!--Preguntas-->
                         @foreach($questions as $question)
                             <p  style="margin-bottom: 20px"><span class="label label-primary">{{ $question->title }}</span></p>

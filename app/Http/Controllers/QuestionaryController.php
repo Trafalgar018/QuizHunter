@@ -100,9 +100,7 @@ class QuestionaryController extends Controller
 
     public function destroy(Questionary $questionary)
     {
-        if( ! Auth::user()->can('delete', $questionary) ){
-            return redirect()->route('home');
-        }
+        $questionary->questions()->detach();
         $questionary->delete();
         return redirect()->route('user', Auth::user()->slug);
     }
