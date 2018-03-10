@@ -17,20 +17,18 @@
                     <span class="fa fa-pencil"></span>
                 </button>
             </div>
-                <div class="row-control col-md-1">
+                {{--<div class="row-control col-md-1">--}}
+                    {{--<button type="button" class="btn btn-default" href="/questionary/load/{{$questionary['id']}}" style="margin: 25px">--}}
+                        {{--<span class="fa fa-times-circle"></span>--}}
+                    {{--</button>--}}
+                {{--</div>--}}
+
+
                     <form action="{{ Route('questionary_delete', $questionary->id) }}" method="POST">
-                    <button type="submit" class="btn btn-default" href="/questionary/load/{{$questionary['id']}}" style="margin: 25px">
-                        <span class="fa fa-times-circle"></span>
-                    </button>
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <button type="submit" class="button alert">Borra</button>
                     </form>
-                </div>
-
-
-                    {{----}}
-                        {{--{{ csrf_field() }}--}}
-                        {{--{{ method_field('DELETE') }}--}}
-                        {{--<button type="submit" class="fa fa-times-circle">Borra</button>--}}
-                    {{----}}
 
 
             </div>
