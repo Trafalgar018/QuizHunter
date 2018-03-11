@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
 
+    //Crea un Comentario
+
     public function store(CreateCommentRequest $request,$id)
     {
 

@@ -10,11 +10,14 @@ use App\user;
 
 class DocumentController extends Controller
 {
+
+    //Devuelve la vista donde crearemos nustro documento
     public function create()
     {
         return view('document.create');
     }
 
+    //Crea un Documento
     public function store(CreateDocumentRequest $request)
     {
         $user = $request->user();
@@ -28,6 +31,7 @@ class DocumentController extends Controller
         return redirect('/home');
     }
 
+    //Nos mustra los documentos del usuario que los ha creado
     public function show($slug){
 
         $user = User::where('slug', $slug)->first();
@@ -40,6 +44,7 @@ class DocumentController extends Controller
         ]);
     }
 
+    //Destruye cun documento
     public function destroy(Document $document)
     {
         $document->delete();

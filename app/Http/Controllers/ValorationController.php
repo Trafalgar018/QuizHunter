@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class ValorationController extends Controller
 {
+    //crea una valioracion
     public function store(CreateValorationRequest $request,$id)
     {
 

@@ -11,11 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
+
+    //Muestra la vista para crear preguntas
     public function create()
     {
         return view('question.create');
     }
 
+    //Crea una pregunta y sus 3 respuestas
     public function store(CreateQuestionRequest $request)
     {
         $user = $request->user();
@@ -46,6 +49,7 @@ class QuestionController extends Controller
         return redirect('/home');
     }
 
+    //Muestra las preguntas del usuario autenticado
     public function load()
     {
             $user = Auth::user()->name;
@@ -58,7 +62,7 @@ class QuestionController extends Controller
             ]);
 
     }
-
+    //Muestra las preguntas de un usuario
     public function show($slug){
 
         $user = User::where('slug', $slug)->first();
@@ -71,6 +75,7 @@ class QuestionController extends Controller
         ]);
     }
 
+    //Destruye una pregunta
     public function destroy(Question $question)
     {
         $question->questionaries()->detach();
@@ -85,6 +90,7 @@ class QuestionController extends Controller
         ]);
     }
 
+    //edita una pregunta
     public function remake(EditQuestionRequest $request,Question $question)
     {
         $question->fill([

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Storage;
 class QuestionaryController extends Controller
 {
 
+    //Mostrar cuestionarios
     public function show($slug)
     {
 
@@ -37,10 +38,13 @@ class QuestionaryController extends Controller
         ]);
     }
 
+    //redirigir a la creacion de un cuestionario
     public function create()
     {
         return view('questionary.create');
     }
+
+    //Crea un nuevo Cuestionario
 
     public function store(CreateQuestionaryRequest $request)
     {
@@ -61,6 +65,8 @@ class QuestionaryController extends Controller
         return redirect('/home');
     }
 
+
+    //Añade las preguntas al cuestionario recreando las relaciones para que pueda actualizar tambien si hay relaciones anteriores
     public function load($id)
     {
 
@@ -79,6 +85,7 @@ class QuestionaryController extends Controller
     }
 
 
+    //para mi la joya de la corona, recoger los datos mediante ajax para pasarlos al controlador (es decir, aqui) y poder mandarlos a la funcion anterior
     public function ajaxRequestPost()
     {
 
@@ -101,7 +108,7 @@ class QuestionaryController extends Controller
 
 
     }
-
+    //Destruye un cuestionario
     public function destroy(Questionary $questionary)
     {
         $questionary->questions()->detach();

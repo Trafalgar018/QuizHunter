@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+
+    //Carga los cuestionarios para mandarlos a la vista externa (por otro usuario) del usuario autenticado
     public function index(User $user)
     {
 
@@ -19,7 +21,7 @@ class UsersController extends Controller
         ]);
 
     }
-
+    //En este caso hace lo mismo pero las manda al home del usuario
     public function home($slug){
 
         $user = User::where('name', $slug)->first();
