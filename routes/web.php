@@ -24,6 +24,8 @@ Route::delete('/questionary/{questionary}', 'QuestionaryController@destroy')->na
 Route::get('/question/create', 'QuestionController@create')->name('create_question');
 Route::post('/question/create','QuestionController@store')->name('store');
 
+Route::post('/comment/create/{id}','CommentController@store')->name('comment_create');
+
 Route::get('/profile/{slug}', 'UsersController@home')->name('user.home');
 
 Route::get('/questionary/load/{id}', 'QuestionaryController@load')->name('questionary_load');

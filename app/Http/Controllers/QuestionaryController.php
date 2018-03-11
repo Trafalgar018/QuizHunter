@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Answer;
 use App\Questionary;
 use App\Question;
+use App\Comment;
 use App\User;
 use App\Http\Requests\CreateQuestionaryRequest;
 use Illuminate\Http\Request;
@@ -20,7 +21,9 @@ class QuestionaryController extends Controller
         $questionary = Questionary::where('slug', $slug)->first();
         $questions =  $questionary->questions;
         $answers = array();
+        $comments = Comment::where('questionary_id', $questionary->id)->latest()->paginate(20);
 
+        //dd($comments);
         foreach($questions as $question){
             $answer = Answer::where('question_id', $question->id)->paginate(3);
             array_push($answers,$answer);
@@ -29,7 +32,8 @@ class QuestionaryController extends Controller
         return view('questionary.view', [
             'questionary' => $questionary,
             'questions'   => $questions,
-            'answers' => $answers
+            'answers' => $answers,
+            'comments' => $comments
         ]);
     }
 
