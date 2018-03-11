@@ -1,8 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="row" style="margin: 25px">
     <br>
     <h1>My quizs</h1>
+    <a href="/questions/{{ Auth::user()->slug }}" style="margin: 5px;margin-left: 40px">
+        <button class="btn btn-info">Ver mis preguntas</button>
+    </a>
+        <a href="/documents/{{ Auth::user()->slug }}" style="margin: 5px;margin-left: 40px">
+            <button class="btn btn-info">Ver mis documentos</button>
+        </a>
+
+    </div>
+
     <hr>
     <div class="container">
         @forelse($questionaries as $questionary)

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateQuestionRequest extends FormRequest
+class CreateDocumentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,23 +24,16 @@ class CreateQuestionRequest extends FormRequest
     public function rules()
     {
         return [
-            'question' => [
+            'text' => [
                 'required', 'string'
             ],
-            'answer' => [
-                'required', 'string'
-            ]
-
-
         ];
     }
 
     public function messages()
     {
         return [
-            'question.required' => 'Introduzca una pregunta una pregunta',
-            'answer.required' => 'Introduzca una respuesta'
+            'text.required'            => 'Es necesario un titulo',
         ];
     }
-
 }

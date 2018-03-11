@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Answer;
+Use App\User;
 use App\Question;
 use App\Http\Requests\CreateQuestionRequest;
+use App\Http\Requests\EditQuestionRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
@@ -43,7 +46,8 @@ class QuestionController extends Controller
         return redirect('/home');
     }
 
-    public function load(){
+    public function load()
+    {
             $user = Auth::user()->name;
 
             $questions = $user->questions()->latest()->paginate(6);
@@ -55,17 +59,39 @@ class QuestionController extends Controller
 
     }
 
-    /**
-     * @param Chusqer $chusqer
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function destroy($id)
-    {
-        $question = Questionary::where('id',$id)->frist();
+    public function show($slug){
 
-        if( ! Auth::user()->can('delete', $question) ){
-            return redirect()->route('home');
-        }
+        $user = User::where('slug', $slug)->first();
+
+        $questions = $user->questions()->latest()->paginate(6);
+
+        return view('question.view', [
+            'user'          => $user,
+            'questions' => $questions
+        ]);
+    }
+
+    public function destroy(Question $question)
+    {
+        $question->questionaries()->detach();
         $question->delete();
+        return redirect()->route('user', Auth::user()->slug);
+        //return redirect()->back();
+    }
+
+    public function edit($question){
+        return view('question.edit',[
+            'question' => $question
+        ]);
+    }
+
+    public function remake(EditQuestionRequest $request,Question $question)
+    {
+        $question->fill([
+            'title' => $request->input('question'),
+        ]);
+
+        return redirect()->route('user', Auth::user()->slug);
     }
 }
+

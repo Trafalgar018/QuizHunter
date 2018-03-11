@@ -41,4 +41,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function valorations()
+    {
+        return $this->hasMany(Questionary::class);
+    }
+    public function documents()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

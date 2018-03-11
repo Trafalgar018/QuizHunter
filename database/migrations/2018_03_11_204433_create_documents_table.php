@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddQuestionaryIdToCommentsTable extends Migration
+class CreateDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AddQuestionaryIdToCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function (Blueprint $table) {
-            $table->integer('questionary_id')->unsigned()->after('id');
-
-            $table->foreign('questionary_id')->references('id')->on('questionaries');
+        Schema::create('documents', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('text');
+            //img
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ class AddQuestionaryIdToCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('add_questionary_id_to_comments');
+        Schema::dropIfExists('documents');
     }
 }

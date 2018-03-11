@@ -20,6 +20,7 @@
                     <div class="form-control" style="margin-top: 15px;background-color: #d6d5cf;margin-bottom: 15px" id="{{$question['id']}}">
                             <strong>{{$question['title'] }}</strong>
                     </div>
+
             @empty
                 <h4>No hay preguntas</h4>
             @endforelse

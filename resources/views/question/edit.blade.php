@@ -5,7 +5,7 @@
             <div class="panel-body">
                 <div class="form-body">
 
-                    <form action="{{ url('/') }}/question/create" method="post">
+                    <form action="{{ Route('question_remake',$question) }}" method="post">
                         {{ csrf_field() }}
 
                         <div class="panel-boy" id="questions">

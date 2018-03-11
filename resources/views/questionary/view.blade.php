@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
     <div class="container" style="margin-top: 70px">
+
         <div class="signup-form-container">
             <div class="panel-body">
                 <div class="form-body">
-
                     <div class="form-control">
                         <div class="panel-heading" style="text-align: center">
                             <h2>{{ $questionary->title }}</h2>
@@ -51,6 +51,7 @@
                         {{ csrf_field() }}
                         <textarea class="form-control" id="comment" name="comment" rows="6"></textarea>
                         @if($errors->has('comment'))
+                            <br>
                             @foreach($errors->get('comment') as $message)
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
@@ -58,13 +59,33 @@
                             @endforeach
                         @endif
 
+                        <div class="row col-md-3">
+
                         <div class="row">
                             <button type="submit" class="btn btn-info" style="margin: 15px;width: 60px">
                                 <span class="fa fa-paper-plane"></span>
                             </button>
                         </div>
                     </form>
+                    <form action="/valoration/create/{{ $questionary->id }}" method="post">
+                        {{ csrf_field() }}
+
+                        <div class="btn-group" style="margin: 15px;width: 60px">
+                            <button type="submit" class="btn btn-info">Puntuacion</button>
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </button>
+                            <select class="dropdown-menu" role="menu" name="valoration" id="valoration">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </form>
                     <br>
+                </div>
                     @foreach($comments as $comment)
                         <div class="form-control">
                             <p>{{$comment->comment}}</p>

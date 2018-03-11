@@ -47,6 +47,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route ('create_question') }}">Crear pregunta<span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route ('create_document') }}">Crear documento<span class="sr-only">(current)</span></a>
+                    </li>
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -57,8 +60,6 @@
                         </form>
                     </li>
                     @endguest
-
-            
             </ul>
         </div>
     </nav>
