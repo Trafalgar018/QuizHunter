@@ -42,6 +42,8 @@ Route::get('/questionary/load/{id}', 'QuestionaryController@load')->name('questi
 Route::post('/ajaxRequest', 'QuestionaryController@ajaxRequestPost');
 });
 
+Route::post('/register/validate', 'Auth\RegisterController@validateAJAX')->middleware('guest');
+
 Route::get('/questionary/{slug}', 'QuestionaryController@show')->name('show');
 
 Route::get('/users/{slug}', 'UsersController@show')->name('user');

@@ -27,9 +27,7 @@ class CreateQuestionRequest extends FormRequest
             'question' => [
                 'required', 'string'
             ],
-            'answer' => [
-                'required', 'string'
-            ]
+
 
 
         ];

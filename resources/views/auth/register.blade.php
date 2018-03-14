@@ -25,9 +25,9 @@
                         <div class="input-group">
                             <input id="name" type="text" class="form-control" name="name" placeholder="Nombre" value="{{ old('name') }}" required autofocus>
                             @if ($errors->has('name'))
-                                <span class="help-block">
+                                <div class="invalid-feedback">
                                     <strong>{{ $errors->first('name') }}</strong>
-                                </span>
+                                </div>
                             @endif
                         </div>
                     </div>
@@ -36,9 +36,9 @@
                         <div class="input-group">
                             <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}" required>
                             @if ($errors->has('email'))
-                                <span class="help-block">
+                                <div class="invalid-feedback">
                                     <strong>{{ $errors->first('email') }}</strong>
-                                </span>
+                                </div>
                             @endif
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                 <br>
 
                 <div class="form-footer">
-                    <button type="submit" class="btn btn-info">
+                    <button type="submit" class="btn btn-info" id="registerBtn">
                         <span class="glyphicon glyphicon-log-in"></span> Enviar
                     </button>
                 </div>

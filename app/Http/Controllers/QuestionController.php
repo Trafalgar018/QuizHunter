@@ -31,16 +31,8 @@ class QuestionController extends Controller
 
         for ($i = 1; $i <= 3; $i++) {
 
-            $correct = false;
-
-            if($_POST["radios"])
-            {
-                $correct = true;
-            }
-
-
             Answer::create([
-                'answer' => $request->input('answer' . $i),
+                'answer' => $request->input("answer" . $i),
                 'correct'=> false,
                 'question_id' => $question->id,
             ]);

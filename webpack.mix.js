@@ -14,5 +14,6 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/draggable.js', 'public/js')
     .js('resources/assets/js/reciveQuestions.js', 'public/js')
+    .js('resources/assets/js/validate.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css');
 

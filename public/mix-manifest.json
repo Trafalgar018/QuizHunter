@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/validate.js": "/js/validate.js",
     "/js/reciveQuestions.js": "/js/reciveQuestions.js",
     "/js/draggable.js": "/js/draggable.js"
 }
